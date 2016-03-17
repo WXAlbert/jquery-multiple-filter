@@ -1,0 +1,27 @@
+.jmf-container{font-size: 16px; padding: 2px; border: 1px solid #e8e8e8;}
+.jmf-select-item, .jmf-select-result{position: relative; min-height: 34px; margin: 0; padding: 5px 112px 5px 120px; border-top: 1px dashed #dedede; overflow: hidden;}
+.jmf-select-result:first-child{border-top: 0;}
+.jmf-select-item > dt, .jmf-select-result > dt{position: absolute; left: 0; width: 120px; line-height: 24px; text-align: right; color: #999;}
+.jmf-select-item > dd, .jmf-select-result > dd{float: left; display: inline-block; margin: 0 10px; line-height: 24px;}
+.jmf-select-result > dd{margin: 0 5px;}
+.jmf-select-opesp{position: absolute; top: 0; right: 0; width: 112px;}
+.jmf-select-value {display: inline-block; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;}
+.jmf-select-value:hover{color:#f40;}
+.jmf-select-result > dt{margin-top: 3px;}
+.jmf-selected-item-rm{font-style:normal; position: absolute; right: 6px;}
+.jmf-selected-item{font-size: 14px; position: relative; margin-top: 4px; padding: 0 18px 0 4px; float: left; max-width: 144px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border: 1px solid #e8e8e8; height: 20px; line-height: 20px; color: #666; text-decoration: none; cursor: pointer;}
+.jmf-selected-item:hover{border-color:#f40;}
+.jmf-selected-item:hover .jmf-selected-item-rm{color: #f40;}
+
+.jmf-btn-item-mtp{font-size: 14px; display: inline-block; margin-top: 6px; border: solid 1px #dad9d9; padding: 2px; color: #404040; cursor: pointer;}
+.jmf-btn-item-mtp:hover{color: #f40;}
+.jmf-item-input-ok{font-size: 14px; display: inline-block; line-height: 15px; margin-left: 5px; border: solid 1px #dad9d9; padding: 2px; color: #404040; cursor: pointer;}
+.jmf-item-input-ok:hover{color: #f40;}
+.jmf-togobtn{font-size: 14px; display: inline-block; border: solid 1px #e8e8e8; margin-top: 6px; padding: 0 9px; height: 24px; line-height: 24px; background: #f6f6f6; color: #6b6b6b; cursor: pointer; text-decoration: none;}
+.jmf-togobtn:hover{color: #f40;}
+.jmf-togobtn > span{display: block;}
+.jmf-togobtn.collapse > .collapse{display: none;}
+.jmf-togobtn.expand > .expand{display: none;}
+.jmf-items-container{}
+.jmf-items-container.expand{-webkit-animation: fadeIn 1s; animation: fadeIn 1s;}
+.jmf-items-container.collapse{-webkit-animation: fadeOut 0.5s; animation: fadeOut 0.5s;}
