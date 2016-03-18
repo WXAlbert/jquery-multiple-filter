@@ -18,7 +18,9 @@
                 togoBtnClass: 'jmf-togobtn',
                 data: [],
                 default: {},
-                expand: true
+                expand: true,
+                onSelect: $.noop,
+                onRemove: $.noop
             }, config),
             _selItemVal = 'jmf-select-value',
             _selItemInputOk = 'jmf-item-input-ok',
@@ -112,6 +114,7 @@
                     item_val = item_val_data.item;
 
                 _addSeldDom(item_data, item_val);
+                _config.onSelect(getSelected(), item_data, item_val);
             });
 
             // 选中[input]
@@ -123,6 +126,7 @@
                 if (item_val) {
                     _addSeldDom(item_data, item_val);
                 }
+                _config.onSelect(getSelected(), item_data, item_val);
             });
 
             // 删除
@@ -131,6 +135,7 @@
                     item_data = $this.data();
                 _config.data[item_data.index]['$$dl'].show();
                 $this.parent('dd').remove();
+                _config.onRemove(getSelected(), item_data);
             });
 
             // 折叠展开

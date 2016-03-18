@@ -9,6 +9,7 @@
 		<script src="jquery-multiple-filter.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
+	    <!--控件结构&&样式-->
 		<div class="jmf-container">
         	    <dl class="jmf-select-result">
                 <dt>已选条件：</dt>
@@ -103,7 +104,13 @@
                             field: 'cpmc', fieldText: '产品名称'
                         }
                     ],
-                    default: {hy: 'gc', khmc: '上海电力', lb: 'itb'}
+                    default: {hy: 'gc', khmc: '上海电力', lb: 'itb'},
+                    onSelect: function(data, item, val){
+                        console.log(data, item, val);
+                    },
+                    onRemove: function(data, item){
+                        console.log(data, item);
+                    }
                 });
 
                 var jfmObj2 = window.jqMultipleFilter('#jmf2', {
