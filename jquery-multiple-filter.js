@@ -7,7 +7,7 @@
             _config = $.extend(true, {
                 containerClass: 'jmf-container',
                 itemsContainerClass: 'jmf-items-container',
-                selItemClass: 'jmf-select-item',
+                selItemClass: '',
                 selItemValClass: '',
                 selResultClass: 'jmf-select-result',
                 selItemInputClass: 'jmf-item-input',
@@ -23,12 +23,15 @@
                 onSelect: $.noop,
                 onRemove: $.noop
             }, config),
+            _selItem = 'jmf-select-item',
             _selItemVal = 'jmf-select-value',
             _selItemInputOk = 'jmf-item-input-ok',
             _seldItem = 'jmf-selected-item',
             _selOpesp = 'jmf-select-opesp',
             _selItemMtp = 'jmf-item-mtp',
             _selItemMtpok = 'jmf-item-mtpok',
+            _selCheck = 'jmf-select-check',
+            _modCheck = 'mod-check',
             $result = $('<dl>').addClass(_config.selResultClass).append(
                 $('<dt>').text('已选择条件：')
             ),
@@ -67,7 +70,7 @@
 
             $.each(_config.data, function(dt_i, dt_o) {
                 var dt_html = dt_o.fieldText ? dt_o.fieldText : dt_o.field,
-                    $dl = $('<dl>').addClass(_config.selItemClass).append(
+                    $dl = $('<dl>').addClass(_selItem).addClass(_config.selItemClass).append(
                         $('<dt>').html(dt_html + '：')
                     );
                 dt_o['index'] = dt_i;
@@ -101,24 +104,24 @@
                         $seldItem.data(itm_o);
 
                         $dd.append($seldItem);
-//                      if(dt_o.mutiple){
-//                          $dd.append(
-//                              $('<label>').append(
-//                                  $('<input>').attr({type: 'checkbox', name: 'jmf-' + itm_o.field})
-//                              )
-//                          );
-//                      }
+                        if(dt_o.mutiple){
+                            $dd.append(
+                                $('<label>').addClass(_selCheck).append(
+                                    $('<input>').attr({type: 'checkbox', name: 'jmf-' + dt_o.field})
+                                ).append(seldTxt)
+                            );
+                        }
                         $dl.append($dd);
                     });
-//                  if(dt_o.mutiple){
-//                      $dl.append(
-//                          $('<div>').addClass(_selOpesp).append(
-//                              $('<a>').addClass(_selItemMtp).addClass(_config.itemMtpBtnClass).text('多选')
-//                          ).append(
-//                              $('<a>').addClass(_selItemMtpok).addClass(_config.itemMtpokBtnClass).text('确定')
-//                          )
-//                      );
-//                  }
+                    if(dt_o.mutiple){
+                        $dl.append(
+                            $('<div>').addClass(_selOpesp).append(
+                                $('<a>').addClass(_selItemMtp).addClass(_config.itemMtpBtnClass).text('多选')
+                            ).append(
+                                $('<a>').addClass(_selItemMtpok).addClass(_config.itemMtpokBtnClass).data({fieldName: 'jmf-' + dt_o.field}).text('确定')
+                            )
+                        );
+                    }
                 }
 
                 $itemsContainer.append($dl);
@@ -131,7 +134,7 @@
             $jqObj.on('click', '.' + _selItemVal, function(e) {
                 // console.log(e.target);
                 var $this = $(this),
-                    item_data = $this.parents('dl').data(),
+                    item_data = $this.parents('.' + _selItem).data(),
                     item_val_data = $this.data(),
                     item_val = item_val_data.item;
 
@@ -143,7 +146,7 @@
             $jqObj.on('click', '.' + _selItemInputOk, function(e) {
                 // console.log(e.target);
                 var $this = $(this),
-                    item_data = $this.parents('dl').data(),
+                    item_data = $this.parents('.' + _selItem).data(),
                     item_val = $this.prev('input').val();
                 if (item_val) {
                     _addSeldDom(item_data, item_val);
@@ -165,6 +168,22 @@
                 $jmfTogoBtn.toggleClass('expand').toggleClass('collapse');
                 $itemsContainer.slideToggle(500, 'swing');
                 $itemsContainer.toggleClass('expand').toggleClass('collapse');
+            });
+
+            // 多选
+            $jqObj.on('click', '.' + _selItemMtp, function(e){
+                var $this = $(this),
+                    $selItem = $this.parents('.' + _selItem);
+                $selItem.addClass(_modCheck);
+            });
+
+            // 多选确定
+            $jqObj.on('click', '.' + _selItemMtpok, function(e){
+                var $this = $(this),
+                    feildName = $this.data('fieldName'),
+                    $selItem = $this.parents('.' + _selItem);
+                $selItem.removeClass(_modCheck);
+                console.log($selItem.find('input[name=' + feildName + ']:checked'));
             });
         }
 
