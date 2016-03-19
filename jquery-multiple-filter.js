@@ -9,13 +9,14 @@
                 itemsContainerClass: 'jmf-items-container',
                 selItemClass: 'jmf-select-item',
                 selItemValClass: '',
-                selItemOpespClass: 'jmf-select-opesp',
                 selResultClass: 'jmf-select-result',
                 selItemInputClass: 'jmf-item-input',
-                selItemInputOkClass: '',
+                selItemInputOkClass: 'jmf-btn',
                 seldItemClass: '',
                 seldItemRmClass: 'jmf-selected-item-rm',
                 togoBtnClass: 'jmf-togobtn',
+                itemMtpBtnClass: 'jmf-btn',
+                itemMtpokBtnClass: 'jmf-btn',
                 data: [],
                 default: {},
                 expand: true,
@@ -25,6 +26,9 @@
             _selItemVal = 'jmf-select-value',
             _selItemInputOk = 'jmf-item-input-ok',
             _seldItem = 'jmf-selected-item',
+            _selOpesp = 'jmf-select-opesp',
+            _selItemMtp = 'jmf-item-mtp',
+            _selItemMtpok = 'jmf-item-mtpok',
             $result = $('<dl>').addClass(_config.selResultClass).append(
                 $('<dt>').text('已选择条件：')
             ),
@@ -56,7 +60,7 @@
 
         function createDom() {
             $result.append(
-                $('<div>').addClass(_config.selItemOpespClass).append($jmfTogoBtn)
+                $('<div>').addClass(_selOpesp).append($jmfTogoBtn)
             );
             $jqObj.addClass(_config.containerClass);
             $jqObj.append($result);
@@ -88,15 +92,33 @@
                 } else {
                     $.each(dt_o.items, function(itm_i, itm_o) {
                         var $seldItem = $('<a>').addClass(_selItemVal).addClass(_config.selItemValClass),
-                            seldTxt = itm_o.itemText ? itm_o.itemText : itm_o.item;
-                            $seldItem.attr({title: seldTxt}).html(seldTxt);
+                            seldTxt = itm_o.itemText ? itm_o.itemText : itm_o.item,
+                            $dd = $('<dd>');
+
+                        $seldItem.attr({title: seldTxt}).html(seldTxt);
+
                         itm_o['index'] = itm_i;
                         $seldItem.data(itm_o);
 
-                        $dl.append(
-                            $('<dd>').append($seldItem)
-                        );
+                        $dd.append($seldItem);
+//                      if(dt_o.mutiple){
+//                          $dd.append(
+//                              $('<label>').append(
+//                                  $('<input>').attr({type: 'checkbox', name: 'jmf-' + itm_o.field})
+//                              )
+//                          );
+//                      }
+                        $dl.append($dd);
                     });
+//                  if(dt_o.mutiple){
+//                      $dl.append(
+//                          $('<div>').addClass(_selOpesp).append(
+//                              $('<a>').addClass(_selItemMtp).addClass(_config.itemMtpBtnClass).text('多选')
+//                          ).append(
+//                              $('<a>').addClass(_selItemMtpok).addClass(_config.itemMtpokBtnClass).text('确定')
+//                          )
+//                      );
+//                  }
                 }
 
                 $itemsContainer.append($dl);
@@ -243,7 +265,7 @@
         }
     }
 
-
+    // 挂载到jQuery
     $.fn.jqMultipleFilter = function(config){
         var $this = $(this);
         return jqMultipleFilter($this.selector, config);

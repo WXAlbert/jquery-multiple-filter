@@ -39,39 +39,56 @@
                 </div>
            </dl>
     	       <div class="jmf-items-container">
-               <dl class="jmf-select-item">
+               <dl class="jmf-select-item mod-check">
                     <dt>行业：</dt>
-                    <dd><a class="jmf-select-value" date-value="gc">工程</a></dd>
-                    <dd><a class="jmf-select-value" date-value="gx">购销</a></dd>
-                    <dd><a class="jmf-select-value" date-value="zl">租赁</a></dd>
-                    <dd><a class="jmf-select-value" date-value="rj">软件</a></dd>
-                    <dd><a class="jmf-select-value" date-value="fw">服务</a></dd>
-                    <div class="jmf-select-opesp"><a class="jmf-btn-item-mtp">多选</a></div>
+                    <dd>
+                        <a class="jmf-select-value" date-value="gc">工程</a>
+                        <label class="jmf-select-check"><input type="checkbox" name="jmf-hy" value="gc">工程</label>
+                    </dd>
+                    <dd>
+                        <a class="jmf-select-value" date-value="gx">购销</a>
+                        <label class="jmf-select-check"><input type="checkbox" name="jmf-hy" value="gx">购销</label>
+                    </dd>
+                    <dd>
+                        <a class="jmf-select-value" date-value="zl">租赁</a>
+                        <label class="jmf-select-check"><input type="checkbox" name="jmf-hy" value="zl">租赁</label>
+                    </dd>
+                    <dd>
+                        <a class="jmf-select-value" date-value="rj">软件</a>
+                        <label class="jmf-select-check"><input type="checkbox" name="jmf-hy" value="rj">软件</label>
+                    </dd>
+                    <dd>
+                        <a class="jmf-select-value" date-value="fw">服务</a>
+                        <label class="jmf-select-check"><input type="checkbox" name="jmf-hy" value="fw">服务</label>
+                    </dd>
+                    <div class="jmf-select-opesp">
+                        <a class="jmf-item-mtp jmf-btn">多选</a>
+                        <a class="jmf-item-mtpok jmf-btn">确定</a>
+                    </div>
                </dl>
                     <dl class="jmf-select-item">
                     <dt>类别：</dt>
                     <dd><a class="jmf-select-value">IT采购(北京)</a></dd>
                     <dd><a class="jmf-select-value">IT采购(杭州)</a></dd>
                     <dd><a class="jmf-select-value">IT采购(广州)</a></dd>
-                    <div class="jmf-select-opesp"><a class="jmf-btn-item-mtp">多选</a></div>
+                    <div class="jmf-select-opesp"><a class="jmf-item-mtp jmf-btn">多选</a></div>
                </dl>
                <dl class="jmf-select-item">
                     <dt>客户名称：</dt>
                     <dd>
-                        <input class="jmf-item-input" type="text"><a class="jmf-item-input-ok">确定</a>
+                        <input class="jmf-item-input" type="text"><a class="jmf-item-input-ok jmf-btn">确定</a>
                     </dd>
                </dl>
                <dl class="jmf-select-item">
                     <dt>合同内容：</dt>
                     <dd>
-                        <input class="jmf-item-input" type="text"><a class="jmf-item-input-ok">确定</a>
+                        <input class="jmf-item-input" type="text"><a class="jmf-item-input-ok jmf-btn">确定</a>
                     </dd>
                </dl>
     	       </div>
     		</div>
 
 		<div id="jmf"></div>
-		<div id="jmf2"></div>
 
 		<script>
             $(function(){
@@ -84,7 +101,8 @@
                                 {item: 'gc', itemText: '工程'},
                                 {item: 'gx', itemText: '购销'},
                                 {item: 'zl', itemText: '租赁'}
-                            ]
+                            ],
+                            mutiple: true
                         },
                         {
                             type: 'select',
@@ -111,37 +129,6 @@
                     onRemove: function(data, item){
                         console.log(data, item);
                     }
-                });
-
-                var jfmObj2 = window.jqMultipleFilter('#jmf2', {
-                    data:[
-                        {
-                            type: 'select',
-                            field: 'hy', fieldText: '行业2',
-                            items:[
-                                {item: 'gc', itemText: '工程'},
-                                {item: 'gx', itemText: '购销'},
-                                {item: 'zl', itemText: '租赁'}
-                            ]
-                        },
-                        {
-                            type: 'select',
-                            field: 'lb', fieldText: '类别2',
-                            items:[
-                                {item: 'itb', itemText: 'IT采购(北京)'},
-                                {item: 'ith', itemText: 'IT采购(杭州)'},
-                                {item: 'itg', itemText: 'IT采购(广州)'}
-                            ]
-                        },
-                        {
-                            type: 'input',
-                            field: 'khmc', fieldText: '客户名称2'
-                        },
-                        {
-                            type: 'input',
-                            field: 'cpmc', fieldText: '产品名称2'
-                        }
-                    ]
                 });
             });
 		</script>
