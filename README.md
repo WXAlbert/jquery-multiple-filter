@@ -1,4 +1,5 @@
 # 基于jQuery的多条件过滤插件
+  当前最新版本 V0.2.0
 
 jquery-multiple-filter 的目标：
 
@@ -12,7 +13,7 @@ jquery-multiple-filter 的目标：
 	<link rel="jquery-multiple-filter.css">
   	<script src="jquery-1.12.1.js">
   	<script src="jquery-multiple-filter.js">
-	``` 
+	```
 2. 创建html容器
 
 	```
@@ -61,10 +62,10 @@ jquery-multiple-filter 的目标：
 	```
 ## 参数
 
-| 字段 | 描述 |
-| --- | ----------- |
-| `data` | 字段列表 `fieldList Object` |
-| `default` | 默认选中值 |
-| `onSelect` | 选中事件回调 |
-| `onRemove` | 删除事件回调 |
+    | 字段 | 描述 |
+    | --- | ----------- |
+    | `data` | 字段列表 `fieldList Object` |
+    | `default` | 默认选中值 |
+    | `onSelect` | 选中事件回调 |
+    | `onRemove` | 删除事件回调 |
 
