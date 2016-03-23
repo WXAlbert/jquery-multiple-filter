@@ -89,6 +89,7 @@ jquery-multiple-filter 的目标：
     | `items` | Items Array type为"select"时的备选条件，实际值为"item"，显示值为"itemText" |  |
 
 ## API
+
     | 属性 | 描述 |
     | --- | ----------- |
     | $jqObj | 控件所在dom节点的jquery对象 |
