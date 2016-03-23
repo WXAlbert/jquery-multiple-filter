@@ -60,7 +60,7 @@ jquery-multiple-filter 的目标：
         }
 	});
 	```
-## 参数
+## 配置参数
 
     | 字段 | 描述 | 默认值 |
     | --- | ----------- | ----------- |
@@ -87,3 +87,12 @@ jquery-multiple-filter 的目标：
     | `field` | 字段实际值 |  |
     | `fieldText` | 字段显示值，当该字段不存在时，显示值默认为 `field` |  |
     | `items` | Items Array type为"select"时的备选条件，实际值为"item"，显示值为"itemText" |  |
+
+## API
+    | 属性 | 描述 |
+    | --- | ----------- |
+    | $jqObj | 控件所在dom节点的jquery对象 |
+    | config | 配置参数 |
+    | getSelected | function 获取筛选结果 |
+    | setSelected | function [object] 参数为字段fiell、字段选中值的键值对 |
+
