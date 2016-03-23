@@ -60,7 +60,9 @@ jquery-multiple-filter 的目标：
         }
 	});
 	```
+	
 ## 配置参数
+
 
     | 字段 | 描述 | 默认值 |
     | --- | ----------- | ----------- |
@@ -90,10 +92,10 @@ jquery-multiple-filter 的目标：
 
 ## API
 
-    | 属性 | 描述 |
-    | --- | ----------- |
-    | $jqObj | 控件所在dom节点的jquery对象 |
-    | config | 配置参数 |
-    | getSelected | function 获取筛选结果 |
-    | setSelected | function [object] 参数为字段fiell、字段选中值的键值对 |
+| 属性 | 描述 |
+| --- | ----------- |
+| `$jqObj` | 控件所在dom节点的jquery对象 |
+| `config` | 配置参数 |
+| `getSelected` | `function` 获取筛选结果 |
+| `setSelected` | `function [object]` 参数为字段fiell、字段选中值的键值对 |
 
