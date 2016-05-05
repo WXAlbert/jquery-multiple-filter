@@ -63,32 +63,33 @@ jquery-multiple-filter 的目标：
 	
 ## 配置参数
 
+| 字段 | 描述 | 默认值 |
+| --- | ----------- | ----------- |
+| `data` | 字段列表 `fieldList Array` |
+| `data` | 字段列表 `fieldList Array` |
+| `default` | 默认选中值 | {} |
+| `onSelect` | 选中事件回调 |  |
+| `onRemove` | 删除事件回调 |  |
+| `containerClass` |  | 'jmf-container' |
+| `itemsContainerClass` |  | 'jmf-items-container' |
+| `selItemClass` |  | '' |
+| `selItemValClass` |  | '' |
+| `selResultClass` |  | 'jmf-select-result' |
+| `selItemInputClass` |  | 'jmf-item-input' |
+| `selItemInputOkClass` |  | 'jmf-btn' |
+| `seldItemClass` |  | '' |
+| `seldItemRmClass` |  | 'jmf-selected-item-rm' |
+| `togoBtnClass` |  | 'jmf-togobtn' |
+| `itemMtpBtnClass` |  | 'jmf-btn' |
+| `itemMtpokBtnClass` |  | 'jmf-btn' |
 
-    | 字段 | 描述 | 默认值 |
-    | --- | ----------- | ----------- |
-    | `data` | 字段列表 `fieldList Array` |
-    | `default` | 默认选中值 | {} |
-    | `onSelect` | 选中事件回调 |  |
-    | `onRemove` | 删除事件回调 |  |
-    | `containerClass` |  | 'jmf-container` |
-    | `itemsContainerClass` |  | `jmf-items-container` |
-    | `selItemClass` |  | '' |
-    | `selItemValClass` |  | '' |
-    | `selResultClass` |  | 'jmf-select-result' |
-    | `selItemInputClass` |  | 'jmf-item-input' |
-    | `selItemInputOkClass` |  | 'jmf-btn' |
-    | `seldItemClass` |  | '' |
-    | `seldItemRmClass` |  | 'jmf-selected-item-rm' |
-    | `togoBtnClass` |  | 'jmf-togobtn' |
-    | `itemMtpBtnClass` |  | 'jmf-btn' |
-    | `itemMtpokBtnClass` |  | 'jmf-btn' |
-
-    | fieldList字段参数 | 描述 | 默认值 |
-    | --- | ----------- | ----------- |
-    | `type` | 字段过滤值输入方式"select"|"input" | "select" |
-    | `field` | 字段实际值 |  |
-    | `fieldText` | 字段显示值，当该字段不存在时，显示值默认为 `field` |  |
-    | `items` | Items Array type为"select"时的备选条件，实际值为"item"，显示值为"itemText" |  |
+| fieldList字段参数 | 描述 | 默认值 |
+| --- | ----------- | ----------- |
+| `type` | 字段过滤值输入方式"select"、"input" | "select" |
+| `field` | 字段实际值 |  |
+| `fieldText` | 字段显示值，当该字段不存在时，显示值默认为 `field` |  |
+| `items` | Items Array type为"select"时的备选条件，实际值为"item"，显示值为"itemText" |  |
+    
 
 ## API
 
